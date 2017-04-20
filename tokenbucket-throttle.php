@@ -29,6 +29,8 @@
 A token bucket throttle using a backend UDP token bucket server that 
 serves token. 
 
+Refer to https://www.nighthour.sg/articles/2017/token-bucket-rate-limiter.html
+
 Ng Chiang Lin
 April 2017
 */
@@ -109,4 +111,3 @@ if( isset($_SERVER['REQUEST_METHOD'])  &&  strcasecmp("get", $_SERVER['REQUEST_M
 }
 
 ?>
-
