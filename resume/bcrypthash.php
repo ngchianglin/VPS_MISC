@@ -14,7 +14,7 @@ header('Cache-control: no-store');
 header('X-Content-Type-Options: nosniff');
 header('X-Frame-Options: DENY');
 header('X-XSS-Protection: 1; mode=block');
-header('Content-Security-Policy: default-src \'self\'; script-src \'self\'; connect-src \'self\'; report-uri /csprp/;');
+header('Content-Security-Policy: default-src \'self\'; frame-ancestors \'self\'; base-uri \'self\'; form-action \'self\'; report-uri /csprp/; ');
 header('Referrer-Policy: same-origin');
 
 

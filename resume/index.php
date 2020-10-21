@@ -43,6 +43,7 @@ $session_timeout = 300; //time out after 5 mins of no activity
 
 function getDatabasePDO()
 {
+
   $host = '127.0.0.1';
   $db   = 'db1';
   $user = 'dbuser0001';
@@ -235,7 +236,7 @@ function secureHeaders()
     header('X-Content-Type-Options: nosniff');
     header('X-Frame-Options: DENY');
     header('X-XSS-Protection: 1; mode=block');
-    header('Content-Security-Policy: default-src \'self\'; script-src \'self\'; connect-src \'self\'; report-uri /csprp/;');
+    header('Content-Security-Policy: default-src \'self\'; frame-ancestors \'self\'; base-uri \'self\'; form-action \'self\'; report-uri /csprp/; ');
     header('Referrer-Policy: same-origin');
 }
 
