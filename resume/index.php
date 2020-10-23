@@ -19,10 +19,10 @@ class User
 
 $valid_users = array (
 
-"hr01" => new User("hr01", '$2y$XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', '/opt/secure/file1.html'), 
-"hr02" => new User("hr02", '$2y$XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', '/opt/secure/file2.html'),
-"hr03" => new User("hr03", '$2y$XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', '/opt/secure/file3.html'),
-"myuser01" => new User("myuser01", '$2y$XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', '/opt/secure/file4.html')
+"hr01" => new User("hr01", '$2y$XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', '/opt/secure/file1.html'), 
+"hr02" => new User("hr02", '$2y$XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', '/opt/secure/file2.html'),
+"hr03" => new User("hr03", '$2y$XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', '/opt/secure/file3.html'),
+"myuser01" => new User("myuser01", '$2y$XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', '/opt/secure/file4.html')
 
 );
 
@@ -35,6 +35,7 @@ $captcha_enable = true; // set whether captcha is enabled
 
 $email_account = "my-special-alert001@nighthour.sg";
 $rurl = "https://nighthour.sg/resume/";
+$relative_url = "/resume/";
 $captcha_timeout = 900;
 $max_session_time = 1800; // maximum view time 30 minutes
 $session_timeout = 300; //time out after 5 mins of no activity
@@ -43,11 +44,11 @@ $session_timeout = 300; //time out after 5 mins of no activity
 
 function getDatabasePDO()
 {
-
+ 
   $host = '127.0.0.1';
   $db   = 'db1';
   $user = 'dbuser0001';
-  $pass = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
+  $pass = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
   $charset = 'utf8';
 
   $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
@@ -504,7 +505,7 @@ if(strcasecmp("post", $_SERVER['REQUEST_METHOD']) == 0 )
 
 <div class="rs_center">
 <p>
-<form class="rms_form" action="<?php echo $rurl; ?>" accept-charset="utf-8" method="post" enctype="application/x-www-form-urlencoded" id="rs_form">
+<form class="rms_form" action="<?php echo $relative_url; ?>" accept-charset="utf-8" method="post" enctype="application/x-www-form-urlencoded" id="rs_form">
 <div class="rms_form_row">
 <label>Username</label><br><input type="text" name="userid"  id="rs_userid" placeholder="Username" maxlength="50" size="30" required>
 </div>
