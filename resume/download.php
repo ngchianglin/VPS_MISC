@@ -18,7 +18,7 @@ $rurl = "https://nighthour.sg/resume/";
 
 function getDatabasePDO()
 {
- 
+
   $host = '127.0.0.1';
   $db   = 'db1';
   $user = 'dbuser0001';
@@ -194,7 +194,7 @@ $remoteip="";
 
 if(isset($_SERVER['HTTP_X_REAL_IP']))
 {
-    $remoteip = $_SERVER['HTTP_X_REAL_IP'];
+     $remoteip = " remote ip/real ip : " . $_SERVER['REMOTE_ADDR'] . " : " . $_SERVER['HTTP_X_REAL_IP'];
 }
 else
 {

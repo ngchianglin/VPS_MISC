@@ -44,7 +44,6 @@ $session_timeout = 300; //time out after 5 mins of no activity
 
 function getDatabasePDO()
 {
- 
   $host = '127.0.0.1';
   $db   = 'db1';
   $user = 'dbuser0001';
@@ -287,7 +286,7 @@ $remoteip="";
 
 if(isset($_SERVER['HTTP_X_REAL_IP']))
 {
-    $remoteip = $_SERVER['HTTP_X_REAL_IP'];
+    $remoteip = " remote ip/real ip : " . $_SERVER['REMOTE_ADDR'] . " : " . $_SERVER['HTTP_X_REAL_IP'];
 }
 else
 {
@@ -359,6 +358,11 @@ if(strcasecmp("post", $_SERVER['REQUEST_METHOD']) == 0 )
             }
             else
             {
+                /* Generate a sleep value between 200 million ns to 999 million ns */
+                $sleep_val = rand(200000000,999999999);
+                /* Sleep for random ns */
+                time_nanosleep(0, $sleep_val);
+
                 $error_message = "Invalid Userid and Password !";
                 $log_message = "Failed login attempt : " . $remoteip . " : " . $username . " : " . $password;
                 error_log($log_message, 0);
