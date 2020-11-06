@@ -69,6 +69,7 @@ def listDir(directory):
                 print(directive, ' /', entryname, ' ;', sep='')
             elif entry.is_dir():
                 entryname = formatRelativePath(entry.path)
+                print(directive, ' /', entryname, ' ;',sep='')
                 print(directive, ' /', entryname, '/ ;',sep='')
                 listDir(entry.path)
     
