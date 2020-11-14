@@ -1,6 +1,9 @@
 /* 
 Simple typescript to do combination/permutation generation 
-or permutation using recursion
+or permutation using recursion. 
+The script file can be run using Deno. 
+
+deno run combination-permutation-recursive.ts
 
 Combination and permutation are pretty much similar. 
 In Combination, for a set of items , a number of positions or places
