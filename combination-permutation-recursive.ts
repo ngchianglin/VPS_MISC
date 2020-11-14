@@ -82,7 +82,7 @@ function addItem(dest: (ArrayList|null), new_list_item: (ArrayList|null)):(Array
 function createSubCombin(position:number, digits:number[]):(ArrayList|null) {
     
     /* check for error inputs */
-    if(digits.length === 0 || position <=0)
+    if(digits.length === 0 || position <=0 || position > digits.length)
     {
         return null;
     }
