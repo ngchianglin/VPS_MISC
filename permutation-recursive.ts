@@ -11,7 +11,7 @@ The ordering matters in permutation.
 Eg. {1,2} , the number of arrangements is {2,1}, {1,2}
 
 For an array of integers, what are the possible permutations for n items out of this array. 
-A recursive function can be used to solve for both. 
+A recursive function can be used to solve for this. 
 
 Ng Chiang Lin
 26 Nov 2020
