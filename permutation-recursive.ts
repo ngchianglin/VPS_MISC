@@ -139,9 +139,9 @@ function printlist(list:(ArrayList|null))
 
 /* To get 3 number permutations out of an array of 10 elements */
 /* Consider the 3 numbers as position A, B, C represented by 3,2,1 respectively */
-let combination_position = 3;
-let list = createPermutation(combination_position, arr);
-console.log("Number of possible permutations for", combination_position, "out of", arr.length);
+let position = 3;
+let list = createPermutation(position, arr);
+console.log("Number of possible permutations for", position, "out of", arr.length);
 
 if(list !== null)
 {
