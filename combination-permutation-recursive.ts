@@ -1,33 +1,27 @@
 /* 
-Simple typescript to do combination/permutation generation 
-or permutation using recursion. 
+Simple typescript to do permutation generation 
+using recursion. 
 The script file can be run using Deno. 
 
-deno run combination-permutation-recursive.ts
+deno run permutation-recursive.ts
 
-Combination and permutation are pretty much similar. 
-In Combination, for a set of items , a number of positions or places
-are available. It is the number of ways that these places can be filled. 
+Permutation is the number of ways that things can be arranged.
+The ordering matters in permutation.
 
-Eg. {1,2} with a single position available.  So it can be either 1 or 2. 
+Eg. {1,2} , the number of arrangements is {2,1}, {1,2}
 
-
-In Permuation, the number of positions or places is equal to the set
-of items. It is the number of ways that these items can be arranged. 
-
-Eg. {1,2} , so number of arrangements {2,1}, {1,2}
-
+For an array of integers, what are the possible permutations for n items out of this array. 
 A recursive function can be used to solve for both. 
 
 Ng Chiang Lin
-14 Nov 2020
+26 Nov 2020
 */
 
 
 /* Array of 10 numbers */
 let arr: number[]  = [0,1,2,3,4,5,6,7,8,9];
 
-/* Define an ArrayList to store all the combinations of arrays */
+/* Define an ArrayList to store all the permutations */
 class ArrayList {
     combination: number[] = [];
     next: (ArrayList | null) = null;
@@ -73,13 +67,11 @@ function addItem(dest: (ArrayList|null), new_list_item: (ArrayList|null)):(Array
 /* 
    Recursive function to process each position 
    Takes a positive number that indicates the positions available.
-   Takes an array of digits as total number of items to generate combination.
-   Returns the an ArrayList that contains all possible combinations or permutations
-
-   When the number of positions is equal to the number of items. It is a permutation. 
+   Takes an array of digits as total number of items to generate permutations.
+   Returns the an ArrayList that contains all possible permutations
 
 */
-function createSubCombin(position:number, digits:number[]):(ArrayList|null) {
+function createPermutation(position:number, digits:number[]):(ArrayList|null) {
     
     /* check for error inputs */
     if(digits.length === 0 || position <=0 || position > digits.length)
@@ -116,7 +108,7 @@ function createSubCombin(position:number, digits:number[]):(ArrayList|null) {
             remain_digits = (digits.slice(i+1)).concat(digits.slice(0, i));
         }
         
-        let subresult = createSubCombin(position -1, remain_digits);
+        let subresult = createPermutation(position -1, remain_digits);
 
         let tmp = subresult;
         while(tmp != null)
@@ -135,7 +127,7 @@ function createSubCombin(position:number, digits:number[]):(ArrayList|null) {
 
 
 
-/* Helper function prints the listing of combinations */
+/* Helper function prints the listing of permutations */
 function printlist(list:(ArrayList|null))
 {
     while(list)
@@ -145,11 +137,11 @@ function printlist(list:(ArrayList|null))
     }
 }
 
-/* To get 3 number combinations out of an array of 10 elements */
+/* To get 3 number permutations out of an array of 10 elements */
 /* Consider the 3 numbers as position A, B, C represented by 3,2,1 respectively */
 let combination_position = 3;
-let list = createSubCombin(combination_position, arr);
-console.log("Number of possible combinations for", combination_position, "out of", arr.length);
+let list = createPermutation(combination_position, arr);
+console.log("Number of possible permutations for", combination_position, "out of", arr.length);
 
 if(list !== null)
 {
